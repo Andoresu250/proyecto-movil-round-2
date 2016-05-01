@@ -24,9 +24,15 @@
 
     <fragment
         android:id="@+id/map"
-        android:name="miltoncasanova.proyectomovil2.MapFragment"
+        android:name="miltoncasanova.proyectomovil2.MyMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <!--<FrameLayout
+        android:id="@+id/flContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"/>-->
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:layout_height="wrap_content"

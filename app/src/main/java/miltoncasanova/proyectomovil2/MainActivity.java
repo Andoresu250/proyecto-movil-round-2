@@ -1,10 +1,10 @@
 package miltoncasanova.proyectomovil2;
 
-
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
@@ -14,7 +14,6 @@ import android.widget.Toast;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
-
     private AudioRecording audioRecording = new AudioRecording();
     private TakePicture takePicture;
 
@@ -25,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         takePicture = new TakePicture(this);
+
+        final MyMapFragment mapFragment = (MyMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 
         final FloatingActionButton buttonRecord = (FloatingActionButton) findViewById(R.id.action_record);
         assert buttonRecord != null;
@@ -47,11 +48,11 @@ public class MainActivity extends AppCompatActivity {
                     buttonRecord.setIcon(R.drawable.ic_my_mic);
                     //stop
                     audioRecording.stopRecording();
+                    mapFragment.setRecorderaMarket();
                 }
                 return true;
             }
         });
-
         final FloatingActionButton buttonCamera = (FloatingActionButton) findViewById(R.id.action_open_camera);
         assert buttonCamera != null;
         buttonCamera.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 takePicture.take();
             }
         });
+
 
 
     }

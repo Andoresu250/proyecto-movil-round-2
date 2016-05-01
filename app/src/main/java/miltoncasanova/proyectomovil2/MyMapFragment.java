@@ -3,6 +3,7 @@ package miltoncasanova.proyectomovil2;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
@@ -17,40 +18,70 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 
-public class MapFragment extends SupportMapFragment implements GoogleApiClient.ConnectionCallbacks,
+public class MyMapFragment extends SupportMapFragment implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         GoogleMap.OnInfoWindowClickListener,
         GoogleMap.OnMapLongClickListener,
         GoogleMap.OnMapClickListener,
         GoogleMap.OnMarkerClickListener {
 
-    private GoogleApiClient mGoogleApiClient;
-    private Location mCurrentLocation;
+    public GoogleApiClient mGoogleApiClient;
+    public Location mCurrentLocation;
 
-    private final int[] MAP_TYPES = {GoogleMap.MAP_TYPE_SATELLITE,
+
+    public final int[] MAP_TYPES = {GoogleMap.MAP_TYPE_SATELLITE,
             GoogleMap.MAP_TYPE_NORMAL,
             GoogleMap.MAP_TYPE_HYBRID,
             GoogleMap.MAP_TYPE_TERRAIN,
             GoogleMap.MAP_TYPE_NONE};
-    private int curMapTypeIndex = 1;
+    public int curMapTypeIndex = 1;
+
+    public Location getmCurrentLocation(){
+        return this.mCurrentLocation;
+    }
+
+
+    public void setCameraMarket(){
+        MarkerOptions options = new MarkerOptions().position( new LatLng(mCurrentLocation.getLatitude(),mCurrentLocation.getLongitude()) );
+        options.title("Foto");
+        options.icon(BitmapDescriptorFactory.fromBitmap(
+                BitmapFactory.decodeResource( getResources(),
+                        R.drawable.ic_my_camera ) ));
+        getMap().addMarker( options );
+    }
+
+    public void setRecorderaMarket(){
+        MarkerOptions options = new MarkerOptions().position( new LatLng(mCurrentLocation.getLatitude(),mCurrentLocation.getLongitude()) );
+        options.title("Foto");
+        options.icon(BitmapDescriptorFactory.fromBitmap(
+                BitmapFactory.decodeResource( getResources(),
+                        R.drawable.ic_my_mic ) ));
+        getMap().addMarker( options );
+    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initAll();
+    }
+
+    public void initAll(){
         setHasOptionsMenu(true);
         mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
                 .build();
-
         initListeners();
     }
+
 
     private void initListeners() {
         getMap().setOnMarkerClickListener(this);
