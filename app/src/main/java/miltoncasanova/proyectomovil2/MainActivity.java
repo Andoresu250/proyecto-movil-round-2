@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         buttonText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DialogFragment dialog = new MyAlertDialog();
+                DialogFragment dialog = new TextDialog();
                 dialog.show(getSupportFragmentManager(), "dialog");
             }
         });

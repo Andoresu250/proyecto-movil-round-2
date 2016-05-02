@@ -62,6 +62,15 @@ public class MyMapFragment extends SupportMapFragment implements GoogleApiClient
         getMap().addMarker( options );
     }
 
+    public void setTextaMarket(){
+        MarkerOptions options = new MarkerOptions().position( new LatLng(mCurrentLocation.getLatitude(),mCurrentLocation.getLongitude()) );
+        options.title("Foto");
+        options.icon(BitmapDescriptorFactory.fromBitmap(
+                BitmapFactory.decodeResource( getResources(),
+                        R.drawable.ic_text ) ));
+        getMap().addMarker( options );
+    }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
