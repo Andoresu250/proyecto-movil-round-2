@@ -9,6 +9,7 @@ import android.os.Vibrator;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private TakePicture takePicture;
     private String firebaseUrl = "https://proyecto-movil.firebaseio.com/";
     private FireBaseMethods fireBaseMethods;
+    MyMapFragment myMapFragment;
 
 
     @Override
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         takePicture = new TakePicture(this);
 
-        //final MyMapFragment myMapFragment = (MyMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        myMapFragment = (MyMapFragment) getFragmentManager().findFragmentById(R.id.map);
 
         final FloatingActionButton buttonRecord = (FloatingActionButton) findViewById(R.id.action_record);
         assert buttonRecord != null;
@@ -76,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
         buttonText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("asd",myMapFragment.toString());
+                myMapFragment.setTextaMarket();
                 DialogFragment dialog = new TextDialog();
                 dialog.show(getSupportFragmentManager(), "dialog");
             }
