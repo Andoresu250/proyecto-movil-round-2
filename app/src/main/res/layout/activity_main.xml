@@ -48,12 +48,23 @@
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:id="@+id/action_open_camera"
-            fab:fab_icon="@drawable/ic_my_camera"
+            android:id="@+id/action_upload"
+            fab:fab_icon="@drawable/ic_upload"
             fab:fab_colorNormal="@color/colorAccent"
             fab:fab_colorPressed="@color/colorPrimary"
             fab:fab_size="normal"
-            fab:fab_title="Tomar foto"
+            fab:fab_title="Enviar actividad"
+            >
+        </com.getbase.floatingactionbutton.FloatingActionButton>
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/action_text"
+            fab:fab_icon="@drawable/ic_text"
+            fab:fab_colorNormal="@color/colorAccent"
+            fab:fab_colorPressed="@color/colorPrimary"
+            fab:fab_size="normal"
+            fab:fab_title="Escribe una nota"
             >
         </com.getbase.floatingactionbutton.FloatingActionButton>
         <com.getbase.floatingactionbutton.FloatingActionButton
@@ -67,6 +78,18 @@
             fab:fab_title="Manten presionado para grabar"
             >
         </com.getbase.floatingactionbutton.FloatingActionButton>
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/action_open_camera"
+            fab:fab_icon="@drawable/ic_my_camera"
+            fab:fab_colorNormal="@color/colorAccent"
+            fab:fab_colorPressed="@color/colorPrimary"
+            fab:fab_size="normal"
+            fab:fab_title="Tomar foto"
+            >
+        </com.getbase.floatingactionbutton.FloatingActionButton>
+
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 

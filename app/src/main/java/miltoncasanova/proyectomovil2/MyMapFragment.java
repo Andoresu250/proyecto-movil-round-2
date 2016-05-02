@@ -43,10 +43,6 @@ public class MyMapFragment extends SupportMapFragment implements GoogleApiClient
             GoogleMap.MAP_TYPE_NONE};
     public int curMapTypeIndex = 1;
 
-    public Location getmCurrentLocation(){
-        return this.mCurrentLocation;
-    }
-
 
     public void setCameraMarket(){
         MarkerOptions options = new MarkerOptions().position( new LatLng(mCurrentLocation.getLatitude(),mCurrentLocation.getLongitude()) );
